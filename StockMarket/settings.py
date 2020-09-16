@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'o63o2tqc56cdjk9%atk8de)1@0xj=n5loa9d6&2v&bi98(xfzp'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['stockvalueprediction1.herokuapp.com']
 

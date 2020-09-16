@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Value Prediction</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-image: url("{% static 'images/image_5.jpg' %}");
+        }
+    </style>
+</head>
+<body>
+    <div class = "container p-3 my-3 bg-dark text-black">
+        <div class = "jumbotron text-center">
+            <h2 style = "text-decoration: underline; font-family:cursive">{{ company }} COMPANY STOCK VALUE PREDICTION</h2>
+        </div>
+    </div>
+    <div class = "text-center" style="color: cornsilk;">
+        <p>Your entered data's are loaded.</p>
+        <p>To see and check the Collected Data .Just click below link!</p>
+        <a href="https://in.finance.yahoo.com/quote/{{ company }}/history?p={{ company }}" target = "_blank">Stock Data</a>
+    </div>
+    <div class = "container">
+        <div class = "jumbotron text-center">
+            <h1>Columns Generated with the type of:</h1>
+                  {{ columns }}
+
+            <h4>To know more about this, Just check out this link <a href="https://en.wikipedia.org/wiki/Stock_market" target = "_blank">Stock Market</a></h4>
+            
+            <br>
+            <br>
+        </div>
+        <div class = "container">
+            <div class = "jumbotron">
+                <h3 class = "text-center" style="text-decoration: underline; font-weight: bolder; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">You need to follow below steps to predict the Stock Values</h3>
+                <h2 style="font-family: cursive; text-decoration: underline;">Correlation Plot:</h2>
+                <p>To Start Over the every predictions, need to check out the correlations between the variables.</p>
+                <form action = "corr" target = "_blank">
+                    Enter submit and Get the Correlations plot 
+                    <input type= "submit">
+                </form><br>
+                <h2 style="font-family: cursive; text-decoration: underline;">Stock Value Plot:</h2>
+                <p>From All these columns, we take Adj Close value to predict the future values, because it prevents the OverFit problem</p>
+                <form action = "adjplot" target = "_blank">
+                    Enter submit and Get the plot of Adj Close
+                    <input type= "submit">
+                </form><br>
+                <h2 style="font-family: cursive; text-decoration: underline;">Model Building Process:</h2>
+                <p>Now Model building starts. Before that, you need to specify the number of datas to be predicted.</p>
+                <form action = "model"  enctype="multipart/form-data"  method = "POST", target="_blank">
+                    {% csrf_token %}
+                    Enter the number of test data's to predict:
+                    <input type= "number" class = "form-control"  name = "test_data"><br>
+                    If you have a test data, import it(must be in .csv format):
+                    <input type="file" class = "form-control" id = "fileSelect" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" name = "file_data"><br>
+                    Enter epochs:(If more epochs, slow down the process but gives more accuracy with reducing losses).<br>
+                    To study about epochs. <a href="https://deepai.org/machine-learning-glossary-and-terms/epoch" target="_blank">Click here</a>
+                    <input type= "number" class = "form-control" name = "epochs" required>
+                    <input type = "submit">
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

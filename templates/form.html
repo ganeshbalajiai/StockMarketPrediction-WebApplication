@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FormPage</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-image: url("{% static 'images/image_4.jpg' %}");
+        }
+    </style>
+</head>
+<body>
+    <div class = "container">
+        <div class = "jumbotron">
+            <p>Feel free to contact us. Your datas are fully secured.</p>
+            <p>Fill out the form!!!</p>
+            <div class ="form-group">
+                <form action="formfinal" method = "POST">
+                    {% csrf_token %}
+                    {{ form.as_p}}
+                    <input type= "submit" class = "btn btn-primary">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>predicted VAlue</title>
+    <style>
+        body {
+            background-image: url("{% static 'images/image_5.jpg' %}");
+        }
+    </style>
+</head>
+<body>
+    <div class = "container  p-3 my-3 bg-dark text-black">
+        <div class = "jumbotron">
+            <h4 style="text-decoration: underline; font-family:cursive;">Congratulations!!! You predicted the Stock values of your entered length of data's</h4>
+            {{ final_value }}<br>
+            <p style = "font-family: cursive;">Click Enter to see the Predicted Plot: </p>
+            <form action = "pplot" target="_blank">
+                <input type= "submit" class = "btn btn-primary">
+            </form>
+            <p>Click here to Predict another Stock.<a href="{% url 'index' %}">New Stock</a></p>
+        </div>
+
+    </div>
+</body>
+</html>

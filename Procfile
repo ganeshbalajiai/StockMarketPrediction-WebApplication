@@ -1,1 +1,1 @@
-web: gunicorn StockMarket.wsgi --log-file -
+web: gunicorn StockMarket.wsgi --timeout 10000 --log-file -

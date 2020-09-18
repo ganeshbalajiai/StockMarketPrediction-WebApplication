@@ -25,7 +25,7 @@ SECRET_KEY = 'o63o2tqc56cdjk9%atk8de)1@0xj=n5loa9d6&2v&bi98(xfzp'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['stockvalueprediction1.herokuapp.com']
+ALLOWED_HOSTS = ['stockvaluepredictions.herokuapp.com']
 
 
 # Application definition
@@ -120,15 +120,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
 PROJECT_ROOT   =   os.path.join(os.path.abspath(__file__))
-STATIC_ROOT  =   os.path.join(BASE_DIR, 'asserts')
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
+STATIC_ROOT = os.path.join(BASE_DIR, 'asserts')
+
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-import dj_database_url 
+import dj_database_url
 prod_db  =  dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(prod_db)
 LOGGING = {

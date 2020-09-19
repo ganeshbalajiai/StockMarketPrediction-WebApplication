@@ -25,4 +25,4 @@ Steps involved in this project:
     For Show casing the project, I used Django Framework.
 7) Cloud Platform:
     To make it live, I choosen the heroku platform. 
-# To see my website Go to >>>>> Https://stockvaluepredictions.herokuapp.com
+## To see my website Go to >>> Https://stockvaluepredictions.herokuapp.com
